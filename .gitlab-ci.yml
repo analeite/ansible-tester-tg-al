@@ -10,18 +10,6 @@ stages:
   - deploy # Simulate deploy
   
 
-# .base_build: &base_build
-#   stage: build
-#   only:
-#     - development
-#     - production
-#   before_script:
-#     - cd $SERVICE_NAME
-#     - docker login -u "gitlab-push" -p "$ACR_PUSH" $ACR
-#   script:
-#     - docker build -t "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG" .
-#     - docker push "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG"
-#     - docker rmi "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG"
 
 Build:
   stage: build
