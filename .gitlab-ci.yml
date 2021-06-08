@@ -24,8 +24,10 @@ Unit Test:
   
 Ansible Connectivity Test:
   stage: test
+  variables:
+    ANSIBLE_HOST: $ANSIBLE_HOST
   script:
-    - 'curl -X GET https://ansible.apps.mars -k |grep "working..."'
+    - 'curl -X GET ${ANSIBLE_HOST} -k |grep "working..."'
 
 Deploy:
   stage: deploy
