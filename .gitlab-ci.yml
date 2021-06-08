@@ -22,7 +22,7 @@ Unit Test:
   script:
     - python -m tests.test_app
   
-Anisble Connectivity Test:
+Ansible Connectivity Test:
   stage: test
   script:
     - 'curl -X GET https://ansible.apps.mars -k |grep "working..."'
