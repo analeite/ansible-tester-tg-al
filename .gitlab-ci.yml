@@ -34,6 +34,7 @@ Unit Test:
   stage: test - unit test
   script:
     - pwd
+    - ls
     - python -m tests.test_app.py
   
 Integration Test:
