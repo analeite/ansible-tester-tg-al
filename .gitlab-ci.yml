@@ -5,8 +5,7 @@ image:
 
 stages:
   - build # Simulate build
-  - test - unit test
-  - test - integration test
+  - test
   # - review done through merge request
   - deploy # Simulate deploy
   
@@ -31,12 +30,12 @@ Build:
 
 
 Unit Test:
-  stage: test - unit test
+  stage: test
   script:
     - python -m tests.test_app
   
-Integration Test:
-  stage: test - integration test
+Anisble Connectivity Test:
+  stage: test
   script:
     - 'curl -X GET https://ansible.apps.mars -k |grep "working..."'
 
