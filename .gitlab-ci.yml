@@ -33,6 +33,7 @@ Build:
 Unit Test:
   stage: test - unit test
   script:
+    - pwd
     - python -m tests.test_app.py
   
 Integration Test:
