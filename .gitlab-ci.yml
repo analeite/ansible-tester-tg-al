@@ -29,11 +29,11 @@ Build:
   script: 
     - echo "Build simulation completed"
 
-    
+
 Unit Test:
   stage: test - unit test
   script:
-    - python -m tests/test_app.py
+    - python -m tests.test_app.py
   
 Integration Test:
   stage: test - integration test
