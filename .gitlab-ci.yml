@@ -1,0 +1,51 @@
+---
+image:
+  name: ansible-lint:mars-custom
+  entrypoint: [""]
+
+stages:
+  - build # Simulate build
+  - test - unit test
+  - test - integration test
+  # - review done through merge request
+  - deploy # Simulate deploy
+  
+
+# .base_build: &base_build
+#   stage: build
+#   only:
+#     - development
+#     - production
+#   before_script:
+#     - cd $SERVICE_NAME
+#     - docker login -u "gitlab-push" -p "$ACR_PUSH" $ACR
+#   script:
+#     - docker build -t "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG" .
+#     - docker push "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG"
+#     - docker rmi "$ACR/$IMAGE-$CI_ENVIRONMENT_SLUG"
+
+Build:
+  stage: build
+  script: 
+    - echo "Build simulation completed"
+
+    
+Unit Test:
+  stage: test - unit test
+  script:
+    - python -m tests/test_app.py
+  
+Integration Test:
+  stage: test - integration test
+  script:
+    - 'curl -X GET ${ANSIBLE_HOST} -k |grep "working..."'
+
+Deploy:
+  stage: deploy
+  script:
+    - echo "Deploy simulation completed"
+
+
+
+
+

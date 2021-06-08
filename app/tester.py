@@ -36,16 +36,18 @@ def get_automation_status(job_id):
 
 # Print Results in a friendly way
 def print_results(results):
-  print("#######################################################")
-  print("These are the results of the critical automation tests:")
-  print("#######################################################")
-  for result in results:
-    print(f"Name: {result['name']} - ID: {result['id']} - Status: {result['execution_status'].upper()}")
-    print('-----------------------------------------------------')
-  print("#######################################################")  
+  header_output = f"""
+#######################################################
+These are the results of the critical automation tests:
+#######################################################
+"""
+
+  results_content = "".join([ f"\nName: {result['name']} - ID: {result['id']} - Status: {result['execution_status'].upper()}\n" for result in results])
+
+  footer_output = '\n#######################################################'
 
 
-
+  return header_output + results_content + footer_output
 
 # Orchestrate this module execution
 def main():
@@ -74,7 +76,13 @@ def main():
 
 
 if __name__ == '__main__':
-  main()
+  # main()
+  test_obj = [{
+      'name': 'Test',
+      'id': '1',
+      'execution_status': 'successful',
+    }]
+  print_results(test_obj)
 
 
   
