@@ -38,7 +38,7 @@ Unit Test:
 Integration Test:
   stage: test - integration test
   script:
-    - 'curl -X GET ${ANSIBLE_HOST} -k |grep "working..."'
+    - 'curl -X GET https://ansible.apps.mars -k |grep "working..."'
 
 Deploy:
   stage: deploy
